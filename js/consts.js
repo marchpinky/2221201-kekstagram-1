@@ -13,7 +13,7 @@ const DESCRIPTIONS=[
   'А в ответ тишина.'
 ];
 
-const MESSAGE = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -22,21 +22,16 @@ const MESSAGE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const AMOUNT_OF_ELEMENTS = 25;
+const MAX_COUNT_PHOTO = 25;
 
-const countLike = {
+const LikeCount = {
   MIN: 15,
   MAX: 200
 };
 
-const commentsCount = {
+const CommetCount = {
   MIN: 1,
   MAX: 6
 }
 
-export {NAMES};
-export {DESCRIPTIONS};
-export {MESSAGE};
-export {AMOUNT_OF_ELEMENTS};
-export {countLike};
-export {commentsCount};
+export {NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTO, CommetCount, LikeCount };
