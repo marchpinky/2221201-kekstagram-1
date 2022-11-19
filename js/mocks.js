@@ -20,9 +20,9 @@ const createDescriptions = (id) => ({
   url: `photos/${id}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomPositiveInteger(LikeCount.MIN, LikeCount.MAX),
-  comments: Array.from({length: getRandomPositiveInteger(CommetCount.MIN, CommetCount.MAX)}).map((value, index) => createComments(getRandomPositiveInteger(index + 1))),
+  comments: Array.from({length: getRandomPositiveInteger(CommetCount.MIN, CommetCount.MAX)}).map((_, index) => createComments(getRandomPositiveInteger(index + 1))),
 });
 
-const createPhotos = () => Array.from({length: AMOUNT_OF_ELEMENTS}).map((value, index) => createDescriptions(index + 1));
+const createPhotos = () => Array.from({length: AMOUNT_OF_ELEMENTS}).map((_, index) => createDescriptions(index + 1));
 
 export {createPhotos};

@@ -1,4 +1,1 @@
 import { createPhotos } from "./mocks";
-
-
-

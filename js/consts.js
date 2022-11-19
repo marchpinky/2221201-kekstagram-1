@@ -34,4 +34,4 @@ const CommetCount = {
   MAX: 6
 }
 
-export {NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTO, CommetCount, LikeCount };
+export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTO, CommetCount, LikeCount };
