@@ -1,4 +1,4 @@
-import { PHOTOS } from "./mocks";
+import { createPhotos } from "./mocks";
 
 
 

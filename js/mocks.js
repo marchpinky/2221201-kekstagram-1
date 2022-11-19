@@ -8,21 +8,21 @@ import { MAX_COUNT_PHOTO } from "./consts";
 import { getRandomPositiveInteger } from "./utils";
 import { getRandomArrayElement } from "./utils";
 
-const commentFields = (id) => ({
+const createComments = (id) => ({
   id,
   avatar: `img/avatar-{{${getRandomPositiveInteger(1, MAX_COUNT_PHOTO)}}}.svg`,
   message: getRandomArrayElement(MESSAGES),
   name: getRandomArrayElement(NAMES)
 });
 
-const createDescription = (id) => ({
+const createDescriptions = (id) => ({
   id,
   url: `photos/${id}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomPositiveInteger(LikeCount.MIN, LikeCount.MAX),
-  comments: Array.from({length: getRandomPositiveInteger(CommetCount.MIN, CommetCount.MAX)}).map((value, index) => commentFields(getRandomPositiveInteger(index + 1))),
+  comments: Array.from({length: getRandomPositiveInteger(CommetCount.MIN, CommetCount.MAX)}).map((value, index) => createComments(getRandomPositiveInteger(index + 1))),
 });
 
-let PHOTOS= Array.from({length: AMOUNT_OF_ELEMENTS}).map((value, index) => createDescription(index + 1));
+const createPhotos = () => Array.from({length: AMOUNT_OF_ELEMENTS}).map((value, index) => createDescriptions(index + 1));
 
-export {PHOTOS};
+export {createPhotos};

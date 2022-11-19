@@ -6,7 +6,7 @@ const NAMES = [
   'Виктор',
 ];
 
-const DESCRIPTIONS=[
+const DESCRIPTIONS = [
   'На отдыхе',
   'Отличное место',
   'Люблю котов',
