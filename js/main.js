@@ -1,4 +1,3 @@
-import { photos } from "./mocks";
+import { renderPhotos } from "./pictures";
 
-
-
+renderPhotos();
