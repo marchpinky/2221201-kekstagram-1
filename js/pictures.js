@@ -1,29 +1,20 @@
-import { data } from "./main";
+const pictureTemplate = document.querySelector('#picture').content;
+const picturesList = document.querySelector('.pictures');
 
-const template = document.querySelector('#picture').content;
-const templatePictures = template.querySelector('.picture');
-
-const newFragment = document.createDocumentFragment();
-
-const renderPhoto = (photo) => {
-  const item = templatePictures.cloneNode(true);
-
-  const img = item.querySelector('.picture__img');
-  img.src = photo.url;
-
-  const likes = item.querySelector('.picture__likes');
-  likes.textContent = photo.likes;
-
-  const comments = item.querySelector('.picture__comments');
-  comments.textContent = photo.comments.length;
-  return item;
+const сreatePictureElement = (obj) => {
+  const userPicture = pictureTemplate.cloneNode(true);
+  userPicture.querySelector('.picture__img').src = obj.url;
+  userPicture.querySelector('.picture__comments').textContent = obj.comments.length;
+  userPicture.querySelector('.picture__likes').textContent = obj.likes;
+  return userPicture;
 };
 
-const renderPhotos = () => {
-  photos.forEach((photo) => {
-    newFragment.appendChild(renderPhoto(photo));
-  });
-  picture.appendChild(newFragment);
+const renderPictures = (array) => {
+  const fragment = document.createDocumentFragment();
+  for (const obj of array) {
+    fragment.appendChild(сreatePictureElement(obj));
+  }
+  picturesList.append(fragment);
 };
 
-renderPhotos();
+export { renderPictures };

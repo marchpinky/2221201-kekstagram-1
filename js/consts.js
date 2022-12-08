@@ -22,7 +22,7 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const MAX_COUNT_PHOTO = 25;
+const MAX_COUNT_PHOTOS = 25;
 
 const LikeCount = {
   MIN: 15,
@@ -32,6 +32,6 @@ const LikeCount = {
 const CommentCount = {
   MIN: 1,
   MAX: 6
-}
+};
 
-export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTO, CommentCount, LikeCount };
+export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTOS, CommentCount, LikeCount };
