@@ -47,8 +47,8 @@ const onCloseBigPictureButtonClick = () => {
   closeBigPicture();
 };
 
-const onDocumentEscKeyDown = () => {
-  if(isEscape){
+const onDocumentEscKeyDown = (evt) => {
+  if(isEscape(evt)){
     closeBigPicture();
     document.removeEventListener('keydown', onDocumentEscKeyDown);
   }
