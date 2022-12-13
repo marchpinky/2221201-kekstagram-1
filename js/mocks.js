@@ -4,13 +4,14 @@ import { MESSAGES } from './consts.js';
 import { CommentCount } from './consts.js';
 import { LikeCount } from './consts.js';
 import { MAX_COUNT_PHOTOS } from './consts.js';
+import { AvatarCount } from './consts.js';
 
 import { getRandomPositiveInteger } from './utils.js';
 import { getRandomArrayElement } from './utils.js';
 
 const createComments = (id) => ({
   id,
-  avatar: `img/avatar-${getRandomPositiveInteger(1, MAX_COUNT_PHOTOS)}.svg`,
+  avatar: `img/avatar-${getRandomPositiveInteger(AvatarCount.MIN, AvatarCount.MAX)}.svg`,
   message: getRandomArrayElement(MESSAGES),
   name: getRandomArrayElement(NAMES)
 });
