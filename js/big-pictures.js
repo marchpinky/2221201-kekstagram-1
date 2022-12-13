@@ -6,7 +6,7 @@ const commentLoader = document.querySelector('.comments-loader');
 const closeButton = bigPicture.querySelector('.big-picture__cancel');
 const commentTemplate = bigPicture.querySelector('.social__comment');
 
-const onDocumentEscKeyDown = (evt) => {
+const onDocumentEscKeyDown = () => {
   if(isEscape){
     bigPicture.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
