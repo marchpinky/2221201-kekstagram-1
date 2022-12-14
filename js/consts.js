@@ -34,4 +34,9 @@ const CommentCount = {
   MAX: 6
 };
 
-export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTOS, CommentCount, LikeCount };
+const AvatarCount = {
+  MIN: 1,
+  MAX: 6
+};
+
+export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTOS, CommentCount, LikeCount, AvatarCount };
