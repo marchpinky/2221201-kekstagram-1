@@ -1,6 +1,14 @@
-import './util.js';
-import {createImages} from './data.js';
-import {createThumbnails} from './thumbnails.js';
-import './form.js';
+import {renderUserPhotos} from './pictures.js';
+import {initEffects} from './effects.js';
+import {closeUploadPopup} from './form.js';
+import {submitForm} from './form.js';
+import {getData} from './api.js';
+import {showFilteredPictures} from './filter.js';
 
-createThumbnails(createImages());
+getData((pictures) => {
+  renderUserPhotos(pictures);
+  showFilteredPictures(pictures);
+});
+
+submitForm(closeUploadPopup);
+initEffects();
