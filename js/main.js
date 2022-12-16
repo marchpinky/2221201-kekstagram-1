@@ -1,5 +1,14 @@
-import { createPhotos } from './mocks.js';
-import { renderPictures } from './pictures.js';
+import {renderUserPhotos} from './pictures.js';
+import {initEffects} from './effects.js';
+import {closeUploadPopup} from './form.js';
+import {submitForm} from './form.js';
+import {getData} from './api.js';
+import {showFilteredPictures} from './filter.js';
 
-const data = createPhotos();
-renderPictures(data);
+getData((pictures) => {
+  renderUserPhotos(pictures);
+  showFilteredPictures(pictures);
+});
+
+submitForm(closeUploadPopup);
+initEffects();
