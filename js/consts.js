@@ -23,6 +23,8 @@ const MESSAGES = [
 ];
 
 const MAX_COUNT_PHOTOS = 25;
+const MAX_COUNT_HASHTAGS = 5;
+const MAX_LENGTH_HASHTAGS = 20;
 
 const LikeCount = {
   MIN: 15,
@@ -39,4 +41,4 @@ const AvatarCount = {
   MAX: 6
 };
 
-export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTOS, CommentCount, LikeCount, AvatarCount };
+export { NAMES, DESCRIPTIONS, MESSAGES, MAX_COUNT_PHOTOS, CommentCount, LikeCount, AvatarCount,  MAX_COUNT_HASHTAGS, MAX_LENGTH_HASHTAGS };
