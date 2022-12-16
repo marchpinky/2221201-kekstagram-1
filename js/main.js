@@ -1,5 +1,6 @@
-import { createPhotos } from './mocks.js';
-import { renderPictures } from './pictures.js';
+import './util.js';
+import {createImages} from './data.js';
+import {createThumbnails} from './thumbnails.js';
+import './form.js';
 
-const data = createPhotos();
-renderPictures(data);
+createThumbnails(createImages());
