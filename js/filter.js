@@ -1,13 +1,11 @@
 import {renderUserPhotos} from './pictures.js';
-import {getRandomUniqueElements, debounce} from './util.js';
+import {getRandomUniqueElements, debounce} from './utils.js';
+import { RANDOM_QUANTITY } from './consts.js';
 
-
-const RANDOM_QUANTITY = 10;
 const filters = document.querySelector('.img-filters');
 const defaultButton = document.querySelector('#filter-default');
 const randomButton = document.querySelector('#filter-random');
 const discussedButton = document.querySelector('#filter-discussed');
-
 
 const compareComments = (photoA, photoB) => {
   const rankA = photoA.comments.length;

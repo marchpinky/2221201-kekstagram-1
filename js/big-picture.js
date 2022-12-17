@@ -1,6 +1,6 @@
-import {isEscapeKey} from './util.js';
+import {isEscapeKey} from './utils.js';
+import { MAX_COMMENTS_TO_SHOW } from './consts.js';
 
-const MAX_COMMENTS_TO_SHOW = 5;
 const bigPicture = document.querySelector('.big-picture');
 const closeButton = bigPicture.querySelector('.big-picture__cancel');
 const commentsLoader = bigPicture.querySelector('.comments-loader');
@@ -50,7 +50,6 @@ const showBigPicture = (picture) => {
   }
 
   function commentsLoaderOnClick() {
-    // изменяем значение count прибавляя 5, следовательно slice станет (5, 10), отрисуется еще 5 штук
     count += MAX_COMMENTS_TO_SHOW;
     renderCommentsSlice();
   }
@@ -58,7 +57,6 @@ const showBigPicture = (picture) => {
   function renderCommentsSlice() {
     commentsContainer.innerHTML = '';
     const commentsFragment = document.createDocumentFragment();
-    // создаем срез комментов, будет показываться 5 штук, при клике count перезапишется
     const commentsToShow = picture.comments.slice(0, count + MAX_COMMENTS_TO_SHOW);
     commentsToShow.forEach((comment) => {
       commentsFragment.appendChild(createCommentItem(comment));
@@ -82,4 +80,4 @@ const showBigPicture = (picture) => {
   document.addEventListener('keydown', onPopupEscKeydown);
 };
 
-export {showBigPicture};
+export { showBigPicture };

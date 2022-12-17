@@ -60,6 +60,7 @@ const effects = {
     }
   },
 };
+
 const scaleValue = document.querySelector('.scale__control--value');
 const scaleContainer = document.querySelector('.img-upload__scale');
 const slider = document.querySelector('.effect-level__slider');
@@ -95,7 +96,7 @@ const onScaleButtonClick = (evt) => {
     scaleCount = minScale;
     scaleValue.value = `${scaleCount}%`;
   }
-  imgPreview.style.transform = `scale(${scaleCount / 100})`;
+  imgPreview.style.transform = `scale(${scaleCount / maxScale})`;
 };
 
 const initEffects = () => {

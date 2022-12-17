@@ -1,4 +1,4 @@
-import {isEscapeKey} from './util.js';
+import {isEscapeKey} from './utils.js';
 import {onFilterButtonChange, onScaleButtonClick, scaleContainer, effectList, sliderWrapper} from './effects.js';
 import {sendData} from './api.js';
 import {showMessageSuccess, showMessageError} from './messages.js';
