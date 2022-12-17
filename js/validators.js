@@ -1,5 +1,4 @@
-const TAG_REGEX = /^#[A-Za-zА-Яа-яЕё0-9]{1,19}$/i;
-const MAX_TAGS_NUMBER = 5;
+import { TAG_REGEX, MAX_TAGS_NUMBER } from './consts.js';
 
 const splitHashtags = (value) => value.toLowerCase().split(' ');
 
@@ -35,9 +34,4 @@ const checkIfHashtagCorrect = (value) => {
   return hashTagsArray.every((hashtag) => TAG_REGEX.test(hashtag));
 };
 
-export {
-  checkIfHashtagsRepeated,
-  checkMaxHashtagsCount,
-  checkIfHashtagCorrect,
-  MAX_TAGS_NUMBER,
-};
+export { checkIfHashtagsRepeated, checkMaxHashtagsCount, checkIfHashtagCorrect, MAX_TAGS_NUMBER};

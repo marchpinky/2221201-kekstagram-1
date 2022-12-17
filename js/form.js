@@ -2,10 +2,9 @@ import {isEscapeKey} from './utils.js';
 import {onFilterButtonChange, onScaleButtonClick, scaleContainer, effectList, sliderWrapper} from './effects.js';
 import {sendData} from './api.js';
 import {showMessageSuccess, showMessageError} from './messages.js';
+import { MAX_STRING_LENGTH, FILE_TYPES, HASHTAGS_QUANTITY } from './consts.js';
 
-const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png', 'heic'];
-const MAX_STRING_LENGTH = 140;
-const HASHTAGS_QUANTITY = 5;
+const regex = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 const imgUploadField = document.querySelector('#upload-file');
 const editPhoto = document.querySelector('.img-upload__overlay');
 const form = document.querySelector('.img-upload__form');
@@ -15,7 +14,6 @@ const imgPreview = document.querySelector('.img-upload__preview').querySelector(
 const body = document.querySelector('body');
 const hashtagsField = document.querySelector('.text__hashtags');
 const commentsField = document.querySelector('.text__description');
-const regex = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 const fileChooser = document.querySelector('.img-upload__input');
 
 const uploadImage = () => {
@@ -31,7 +29,6 @@ const uploadImage = () => {
 const checkCommentsLength = (value) => value.length <= MAX_STRING_LENGTH;
 
 const getHashtags = (string) => string.split(' ').filter((item) => item !== '');
-// сначала разделяем строку на массив значаний, затем каждое значание "фильтруем"(проверяем на true) колбэк функцией на пустую строку
 
 const getUniqueHashtags = (string) => {
   const hashtags = getHashtags(string);
@@ -76,7 +73,6 @@ function closeUploadPopup  () {
   form.reset();
 }
 
-// событие focus вызывается тогда, когда пользователь фокусируется на элементе или просто выбирает его, а blur – когда фокус исчезает
 const onFocusBlurEscKeydown = () => {
   commentsField.addEventListener('focus', () => {
     document.removeEventListener('keydown', onPopupEscKeydown);
@@ -102,7 +98,6 @@ const unblockSubmitButton = () => {
   buttonSubmit.textContent = 'Опубликовать';
 };
 
-
 function showUploadPopup (evt) {
   editPhoto.classList.remove('hidden');
   body.classList.add('modal-open');
@@ -123,12 +118,12 @@ const pristine = new Pristine(form, {
   errorTextTag: 'div',
   errorTextClass: 'text__error'
 });
+
 pristine.addValidator(commentsField, checkCommentsLength, `Не более ${MAX_STRING_LENGTH} символов`);
 pristine.addValidator(hashtagsField, getUniqueHashtags, 'Хэштеги не могут повторяться');
 pristine.addValidator(hashtagsField, checkQuantity, 'Не более 5 хэштегов');
 pristine.addValidator(hashtagsField, getHashtagsToLowerCase, '');
 pristine.addValidator(hashtagsField, checkHashtagsSymbols, 'Хэштег должен начинатьтся с #, содержать только буквы и цифры, не более 20 символов');
-
 
 const submitForm = (onSuccess) => {
   form.addEventListener('submit', (evt) => {

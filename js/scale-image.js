@@ -1,13 +1,11 @@
-const SCALE_STEP = 25;
-const MIN_SCALE_VALUE = 25;
-const MAX_SCALE_VALUE = 100;
+import { SCALE_STEP, MAX_SCALE_VALUE, MIN_SCALE_VALUE } from './consts.js';
 
 const scaleImage = (scaleControlValue, imgPreview) => {
   let scaleValue;
 
   const applyChanges = () => {
     scaleControlValue.value = `${scaleValue}%`;
-    imgPreview.style.transform = `scale(${scaleValue / 100})`;
+    imgPreview.style.transform = `scale(${scaleValue / MAX_SCALE_VALUE})`;
   };
 
   const init = () => {
@@ -31,13 +29,7 @@ const scaleImage = (scaleControlValue, imgPreview) => {
     }
   };
 
-  return {
-    init,
-    increaseValue,
-    decreaseValue,
-  };
+  return { init, increaseValue, decreaseValue };
 };
 
-export {
-  scaleImage
-};
+export { scaleImage };

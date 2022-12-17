@@ -6,7 +6,6 @@ const errorTemplate = document.querySelector('#error').content.querySelector('.e
 const successFragment = document.createDocumentFragment();
 const errorFragment = document.createDocumentFragment();
 
-
 const showMessageSuccess = () => {
   const messageSuccess = successTemplate.cloneNode(true);
   successFragment.appendChild(messageSuccess);

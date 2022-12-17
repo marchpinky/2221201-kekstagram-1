@@ -1,3 +1,5 @@
+import { SCALE_STEP, MIN_SCALE_VALUE, MAX_SCALE_VALUE } from './consts.js';
+
 const effects = {
   chrome: {
     filter: 'grayscale',
@@ -68,35 +70,31 @@ const sliderWrapper = document.querySelector('.effect-level');
 const effectValue = document.querySelector('.effect-level__value');
 const imgPreview = document.querySelector('.img-upload__preview').querySelector('img');
 const effectList = document.querySelector('.effects__list');
-const scaleStep = 25;
-const minScale = 25;
-const maxScale = 100;
-
 
 const onScaleButtonClick = (evt) => {
   const scaleInput = Number.parseInt(scaleValue.value, 10);
   let scaleCount;
   const buttonScale = evt.target;
-  if (buttonScale.matches('.scale__control--bigger') && scaleInput < maxScale) {
-    scaleCount =  scaleInput + scaleStep;
+  if (buttonScale.matches('.scale__control--bigger') && scaleInput < MAX_SCALE_VALUE) {
+    scaleCount =  scaleInput + SCALE_STEP;
     scaleValue.value = `${scaleCount}%`;
   }
 
-  if (buttonScale.matches('.scale__control--smaller') && scaleInput > minScale) {
-    scaleCount = scaleInput - scaleStep;
+  if (buttonScale.matches('.scale__control--smaller') && scaleInput > MIN_SCALE_VALUE) {
+    scaleCount = scaleInput - SCALE_STEP;
     scaleValue.value = `${scaleCount}%`;
   }
 
-  if (scaleCount >= maxScale) {
-    scaleCount = maxScale;
+  if (scaleCount >= MAX_SCALE_VALUE) {
+    scaleCount = MAX_SCALE_VALUE;
     scaleValue.value = `${scaleCount}%`;
   }
 
-  if (scaleCount <= minScale) {
-    scaleCount = minScale;
+  if (scaleCount <= MIN_SCALE_VALUE) {
+    scaleCount = MIN_SCALE_VALUE;
     scaleValue.value = `${scaleCount}%`;
   }
-  imgPreview.style.transform = `scale(${scaleCount / maxScale})`;
+  imgPreview.style.transform = `scale(${scaleCount / MAX_SCALE_VALUE})`;
 };
 
 const initEffects = () => {
@@ -137,4 +135,4 @@ const onFilterButtonChange = (evt) => {
   }
 };
 
-export {onFilterButtonChange, onScaleButtonClick, initEffects, scaleContainer, effectList, sliderWrapper};
+export { onFilterButtonChange, onScaleButtonClick, initEffects, scaleContainer, effectList, sliderWrapper };
