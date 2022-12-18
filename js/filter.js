@@ -49,6 +49,7 @@ const showFilteredPictures = (pictures) => {
     if (evt.target === defaultButton) {
       defaultButton.classList.add('img-filters__button--active');
     }
+
     renderPicturesFilter(createDefaultFilter(pictures));
   }));
   randomButton.addEventListener('click', debounce((evt) => {
@@ -56,6 +57,7 @@ const showFilteredPictures = (pictures) => {
     if (evt.target === randomButton) {
       randomButton.classList.add('img-filters__button--active');
     }
+
     renderPicturesFilter(createRandomFilter(pictures));
   }));
   discussedButton.addEventListener('click', debounce((evt) => {
@@ -63,6 +65,7 @@ const showFilteredPictures = (pictures) => {
     if (evt.target === discussedButton) {
       discussedButton.classList.add('img-filters__button--active');
     }
+
     renderPicturesFilter(createDiscussedFilter(pictures));
   }));
 };

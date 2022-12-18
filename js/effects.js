@@ -94,6 +94,7 @@ const onScaleButtonClick = (evt) => {
     scaleCount = MIN_SCALE_VALUE;
     scaleValue.value = `${scaleCount}%`;
   }
+
   imgPreview.style.transform = `scale(${scaleCount / MAX_SCALE_VALUE})`;
 };
 
