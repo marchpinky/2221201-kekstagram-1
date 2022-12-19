@@ -151,4 +151,4 @@ const submitForm = (onSuccess) => {
 
 imgUploadField.addEventListener('change', showUploadPopup);
 
-export {closeUploadPopup, submitForm, imgUploadField, showUploadPopup, body};
+export { closeUploadPopup, submitForm, imgUploadField, showUploadPopup, body };

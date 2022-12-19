@@ -70,4 +70,4 @@ const showFilteredPictures = (pictures) => {
   }));
 };
 
-export {showFilteredPictures};
+export { showFilteredPictures };
